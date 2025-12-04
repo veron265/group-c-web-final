@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <div class="login-container" id="loginPage">
+        <div class="login-card">
+            <div class="login-header">
+                <h2><i class="fas fa-chart-line"></i> Sales Dashboard</h2>
+                <p class="mb-0">Sign in to access your sales analytics</p>
+            </div>
+            <div class="login-body">
+                <div class="mb-4 text-center">
+                    <i class="fas fa-user-circle fa-4x text-gradient" style="background: linear-gradient(to right, #4776E6, #8E54E9); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></i>
+                </div>
+                <form id="loginForm">
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Username</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            <input type="text" class="form-control" id="username" placeholder="Enter username" required>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <label for="password" class="form-label">Password</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                            <input type="password" class="form-control" id="password" placeholder="Enter password" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-login mb-3">
+                        <i class="fas fa-sign-in-alt me-2"></i>Sign In
+                    </button>
+                    <div class="text-center">
+                        <p class="text-muted small mb-0">Use any credentials to login (dummy login)</p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="dashboard-container" id="dashboardPage">
+        <header class="dashboard-header">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="d-flex align-items-center">
+                        <h2 class="mb-0"><i class="fas fa-chart-line me-2"></i>Sales Dashboard</h2>
+                    </div>
+                    <div>
+                        <button class="logout-btn" id="logoutBtn">
+                            <i class="fas fa-sign-out-alt me-2"></i>Logout
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="container dashboard-content">
+            <div class="welcome-message">
+                <h4><i class="fas fa-user-circle me-2"></i>Welcome, <span id="loggedInUser">Admin</span>!</h4>
+                <p class="mb-0">Here's your sales performance overview for today</p>
+            </div>
+
+            <div class="row">
+                <div class="col-md-3 col-sm-6">
+                    <div class="stat-card stat-card-1">
+                        <h5><i class="fas fa-shopping-cart me-2"></i>Today's Sales</h5>
+                        <h2>$12,847</h2>
+                        <p class="mb-0"><i class="fas fa-arrow-up me-1"></i> 12% from yesterday</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="stat-card stat-card-2">
+                        <h5><i class="fas fa-box me-2"></i>Total Orders</h5>
+                        <h2>347</h2>
+                        <p class="mb-0"><i class="fas fa-arrow-up me-1"></i> 8% from yesterday</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="stat-card stat-card-3">
+                        <h5><i class="fas fa-chart-pie me-2"></i>Conversion Rate</h5>
+                        <h2>4.7%</h2>
+                        <p class="mb-0"><i class="fas fa-arrow-up me-1"></i> 0.3% from yesterday</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="stat-card stat-card-4">
+                        <h5><i class="fas fa-users me-2"></i>New Customers</h5>
+                        <h2>42</h2>
+                        <p class="mb-0"><i class="fas fa-arrow-up me-1"></i> 5 from yesterday</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="chart-container">
+                        <h4 class="chart-title"><i class="fas fa-star me-2"></i>Most Sold Items</h4>
+                        <canvas id="mostSoldChart"></canvas>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="chart-container">
+                        <h4 class="chart-title"><i class="fas fa-calendar-day me-2"></i>Sales Throughout the Day</h4>
+                        <canvas id="dailySalesChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="chart-container">
+                        <h4 class="chart-title"><i class="fas fa-balance-scale me-2"></i>Sales Comparison - Last 7 Days</h4>
+                        <canvas id="weeklyComparisonChart"></canvas>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="chart-container">
+                        <h4 class="chart-title"><i class="fas fa-chart-bar me-2"></i>Monthly Sales Comparison</h4>
+                        <canvas id="monthlySalesChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const loginPage = document.getElementById('loginPage');
+            const dashboardPage = document.getElementById('dashboardPage');
+            const loginForm = document.getElementById('loginForm');
+            const logoutBtn = document.getElementById('logoutBtn');
+            const loggedInUser = document.getElementById('loggedInUser');
+
+            const dummyCredentials = {
+                username: 'admin',
+                password: 'password'
+            };
+
+            loginForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const username = document.getElementById('username').value;
+                const password = document.getElementById('password').value;
+                
+                if (username.trim() === '' || password.trim() === '') {
+                    alert('Please enter both username and password');
+                    return;
+                }
+                
+                loggedInUser.textContent = username || 'User';
+                
+                loginPage.style.display = 'none';
+                dashboardPage.style.display = 'block';
+                
+                setTimeout(initializeCharts, 100);
+            });
+
+            logoutBtn.addEventListener('click', function() {
+                loginPage.style.display = 'flex';
+                dashboardPage.style.display = 'none';
+                loginForm.reset();
+            });
+
+            function initializeCharts() {
+                const mostSoldCtx = document.getElementById('mostSoldChart').getContext('2d');
+                const mostSoldChart = new Chart(mostSoldCtx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Laptop Pro X1', 'Wireless Headphones', 'Smartphone Z2', 'Tablet Air', 'Gaming Console', 'Smart Watch'],
+                        datasets: [{
+                            data: [22, 18, 15, 12, 10, 8],
+                            backgroundColor: [
+                                '#FF6384',
+                                '#36A2EB',
+                                '#FFCE56',
+                                '#4BC0C0',
+                                '#9966FF',
+                                '#FF9F40'
+                            ],
+                            borderWidth: 2
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: {
+                                position: 'right',
+                            }
+                        }
+                    }
+                });
+
+                const dailySalesCtx = document.getElementById('dailySalesChart').getContext('2d');
+                const dailySalesChart = new Chart(dailySalesCtx, {
+                    type: 'line',
+                    data: {
+                        labels: ['9 AM', '11 AM', '1 PM', '3 PM', '5 PM', '7 PM', '9 PM'],
+                        datasets: [{
+                            label: 'Sales ($)',
+                            data: [1200, 1900, 1500, 2500, 2200, 3000, 2700],
+                            borderColor: '#8E54E9',
+                            backgroundColor: 'rgba(142, 84, 233, 0.1)',
+                            borderWidth: 3,
+                            fill: true,
+                            tension: 0.4
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                ticks: {
+                                    callback: function(value) {
+                                        return '$' + value;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+
+                const weeklyComparisonCtx = document.getElementById('weeklyComparisonChart').getContext('2d');
+                const weeklyComparisonChart = new Chart(weeklyComparisonCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                        datasets: [{
+                            label: 'This Week',
+                            data: [8500, 9200, 10200, 11500, 12800, 14200, 11800],
+                            backgroundColor: 'rgba(142, 84, 233, 0.7)',
+                            borderColor: '#8E54E9',
+                            borderWidth: 1
+                        }, {
+                            label: 'Last Week',
+                            data: [7800, 8100, 9500, 9900, 11200, 12500, 10500],
+                            backgroundColor: 'rgba(54, 162, 235, 0.7)',
+                            borderColor: '#36A2EB',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                ticks: {
+                                    callback: function(value) {
+                                        return '$' + value;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+
+                const monthlySalesCtx = document.getElementById('monthlySalesChart').getContext('2d');
+                const monthlySalesChart = new Chart(monthlySalesCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                        datasets: [{
+                            label: 'Sales ($)',
+                            data: [12500, 14200, 13800, 16500, 19200, 21000, 23500, 22800, 24500, 26200, 25800, 28500],
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.7)',
+                                'rgba(54, 162, 235, 0.7)',
+                                'rgba(255, 206, 86, 0.7)',
+                                'rgba(75, 192, 192, 0.7)',
+                                'rgba(153, 102, 255, 0.7)',
+                                'rgba(255, 159, 64, 0.7)',
+                                'rgba(255, 99, 132, 0.7)',
+                                'rgba(54, 162, 235, 0.7)',
+                                'rgba(255, 206, 86, 0.7)',
+                                'rgba(75, 192, 192, 0.7)',
+                                'rgba(153, 102, 255, 0.7)',
+                                'rgba(255, 159, 64, 0.7)'
+                            ],
+                            borderColor: [
+                                '#FF6384',
+                                '#36A2EB',
+                                '#FFCE56',
+                                '#4BC0C0',
+                                '#9966FF',
+                                '#FF9F40',
+                                '#FF6384',
+                                '#36A2EB',
+                                '#FFCE56',
+                                '#4BC0C0',
+                                '#9966FF',
+                                '#FF9F40'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                ticks: {
+                                    callback: function(value) {
+                                        return '$' + value;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+
+                window.addEventListener('resize', function() {
+                    mostSoldChart.resize();
+                    dailySalesChart.resize();
+                    weeklyComparisonChart.resize();
+                    monthlySalesChart.resize();
+                });
+            }
+        });
+    </script>
+</body>
+</html>
