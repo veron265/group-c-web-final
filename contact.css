@@ -1,0 +1,19 @@
+.bg-forest {
+  background: linear-gradient(180deg, #0b3b23, #0e3f28);
+}
+
+@keyframes slideDown {
+  0% { 
+    opacity: 0; 
+    transform: translateY(-10px); 
+  }
+  100% { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+.animate-slideDown {
+  animation: slideDown 0.3s ease forwards;
+}
+

@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Contact EcoGlow</title>
+  <meta name="description" content="Contact EcoGlow Skincare for product inquiries, stockists and collaborations." />
+  <meta name="keywords" content="contact ecoglow, eco skincare contact, sustainable skincare contact" />
+  
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BCCRYD6VDX"></script>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="contact.css">
+</head>
+<body class="bg-forest text-green-50 antialiased pt-20">
+
+<!-- NAV -->
+<nav class="fixed top-0 left-0 w-full z-50 bg-forest/95 backdrop-blur-md shadow-md">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between text-green-50">
+    <a href="index.html" class="flex items-center gap-3">
+      <img src="images/leaf.webp" alt="EcoGlow logo" class="w-11 h-11 rounded-full object-cover border border-white/10 shadow-sm"/>
+      <span class="font-serif text-2xl">EcoGlow</span>
+    </a>
+
+    <!-- desktop menu -->
+    <div class="hidden md:flex items-center gap-8 text-sm">
+      <a href="index.html" class="hover:underline">Home</a>
+      <a href="about.html" class="hover:underline">About</a>
+      <a href="products.html" class="hover:underline">Products</a>
+      <a class="nav-link active" aria-current="page" href="#">Contact</a>
+      <a href="products.html" class="ml-2 inline-block bg-green-200 text-green-900 px-4 py-2 rounded-full font-medium">Shop Now</a>
+    </div>
+
+    <!-- mobile icon -->
+    <button id="mobileToggle" class="md:hidden p-2 bg-white/10 rounded" aria-label="Toggle mobile menu">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- mobile menu -->
+  <div id="mobileMenu" class="hidden md:hidden bg-forest/95 backdrop-blur-md border-t border-green-700/30 text-green-50">
+    <div class="flex flex-col items-center py-4 space-y-4">
+      <a href="index.html" class="hover:underline">Home</a>
+      <a href="about.html" class="hover:underline">About</a>
+      <a href="products.html" class="hover:underline">Products</a>
+      <a href="contact.html" class="hover:underline">Contact</a>
+      <a href="products.html" class="bg-green-200 text-green-900 px-5 py-2 rounded-full font-semibold">Shop Now</a>
+      <a href="authAndDashboard.html" class="ml-2 inline-block bg-green-200 text-green-900 px-4 py-2 rounded-full font-medium">Login</a>
+    </div>
+  </div>
+</nav>
+
+<main class="max-w-6xl mx-auto px-6 py-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+  <section class="bg-white/4 rounded-2xl p-6">
+    <h1 class="text-2xl font-semibold">Get in touch</h1>
+    <p class="text-green-100/80 mt-2">Questions about our products or sustainability practices? Send a message — we reply within 48 hours.</p>
+
+    <form id="contactForm" class="mt-6 space-y-4 text-green-900">
+      <input required name="name" placeholder="Full name" class="w-full rounded px-3 py-2 bg-white/6 border border-white/8"/>
+      <input required name="email" placeholder="Email" type="email" class="w-full rounded px-3 py-2 bg-white/6 border border-white/8"/>
+      <textarea required name="message" rows="5" placeholder="Your message" class="w-full rounded px-3 py-2 bg-white/6 border border-white/8"></textarea>
+      <div class="flex items-center gap-4">
+        <button type="submit" class="bg-green-200 text-green-900 px-5 py-2 rounded-full">Send Message</button>
+        <span id="sentMsg" class="text-sm text-green-100/80 hidden">Thanks — we received your message.</span>
+      </div>
+    </form>
+  </section>
+
+  <aside class="space-y-4">
+    <div class="rounded-2xl overflow-hidden shadow-lg">
+      <img src="images/download.jpg" alt="Leafy nature background" class="w-full object-cover h-64" />
+    </div>
+
+    <div class="bg-white/4 rounded-2xl p-4">
+      <h4 class="font-semibold">Visit / Mail</h4>
+      <p class="text-green-100/80 text-sm mt-1">P.O. Box 12345, Kampala — hello@ecoglow.co — +256 700 000 000</p>
+    </div>
+  </aside>
+</main>
+
+<footer class="max-w-6xl mx-auto px-6 py-8 text-center text-green-100/80">
+  © <span id="year"></span> EcoGlow <br>
+    © 2025 Mukiibi Ronald Cosmas | Reg No: 2025-B071-20558
+</footer>
+
+
+<!-- JavaScript -->
+<script src="contact.js"></script>
+</body>
+</html>
