@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EcoGlow Products</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav>
+      <div class="logo">
+        <span style="font-size: 22px; margin-left: 10px">EcoGlow</span>
+      </div>
+
+      <div id="desktopLinks">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="products.html">Products</a>
+        <a href="contact.html">Contact</a>
+      </div>
+
+      <div id="mobileToggle">☰</div>
+    </nav>
+    <div id="mobileMenu">
+      <a href="index.html">Home</a><br />
+      <a href="about.html">About</a><br />
+      <a href="products.html">Products</a><br/>
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <main>
+      <h1>Shop our Collection</h1>
+      <p>Clean formulas, refillable packaging — made for mindful beauty.Skincare products play a vital role in keeping the skin healthy, nourished, and glowing. They are specially formulated to cleanse, hydrate, protect, and treat different skin concerns such as dryness, acne, hyperpigmentation, or aging. From gentle cleansers and moisturizers to serums packed with active ingredients, each product works to support the skin’s natural barrier and improve its overall appearance. Using the right skincare products consistently helps maintain smooth, balanced skin and enhances confidence by promoting a fresh, youthful look.
+</p>
+
+      <div class="products">
+        <div class="card">
+          <img src="images/plant 1.jpg" alt="Moisturizer" />
+          <h3>Radiant Earth Moisturizer</h3>
+          <p>50ml — Aloe & vitamin oils</p>
+          <strong>USD 85</strong><br />
+          <button>Add to Cart</button>
+        </div>
+
+        <div class="card">
+          <img src="images/plant2.jpg" alt="Cleanser" />
+          <h3>Green Harmony Cleanser</h3>
+          <p>120ml — Tea & chamomile</p>
+          <strong>USD 55</strong><br />
+          <button>Add to Cart</button>
+        </div>
+
+        <div class="card">
+          <img src="images/plant3.jpeg" alt="Serum" />
+          <h3>Renew Serum</h3>
+          <p>30ml — Antioxidant-rich</p>
+          <strong>USD 120</strong><br />
+          <button>Add to Cart</button>
+        </div>
+
+        <div class="card">
+          <img src="images/plant4.jpeg" alt="Refill" />
+          <h3>Refill Pouch</h3>
+          <p>Eco‑friendly refill option</p>
+          <strong>USD 35</strong><br />
+          <button>Add to cart</button>
+        </div>
+
+        <div class="card">
+          <img src="images/plant5.jpeg" alt="Extracts" />
+          <h3>Botanical Extracts</h3>
+          <p>Pure plant extracts</p>
+          <strong>USD 45</strong><br />
+          <button>Add to cart</button>
+        </div>
+        <div class="card">
+          <img src="images/plant6.jpeg" alt="Extracts" />
+          <h3>Oilils</h3>
+          <p>plant extracts</p>
+          <strong>USD 45</strong><br />
+          <button>Add to cart</button>
+        </div>
+        <div class="card">
+          <img src="images/plant7.webp" alt="Extracts" />
+          <h3>Aloverain</h3>
+          <p>for a healthy skin</p>
+          <strong>USD 85</strong><br />
+          <button>Add to cart</button>
+        </div>
+        <div class="card">
+          <img src="images/plant8.jpeg" alt="Extracts" />
+          <h3>Serunino</h3>
+          <p>Get of pimples today</p>
+          <strong>USD 75</strong><br />
+          <button>Add to cart</button>
+        </div>
+      </div>
+    </main>
+
+    <footer>© <span id="year" ></span> Gabagaya Catherine 2025-B071-22242</footer>
+
+  <script>
+    document.getElementById("year").textContent =new Date().getFullYear();
+    const btn = document.getElementById("mobiletoggle");
+    const menu = document.getElementById("mobilemenu");
+    btn.onclick = function () {
+      menu.style.display =
+      menu.style.display ==="block" ? "none" : "block";
+    };
+  </script>
+  
+  </body>
+</html>
