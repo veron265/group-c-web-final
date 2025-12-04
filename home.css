@@ -1,0 +1,368 @@
+/* Tailwind-like utilities for the project */
+.bg-forest {
+  background: linear-gradient(180deg,#0b3b23 0%, #0e3f28 50%, #16603a 100%);
+}
+
+.glass {
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(6px);
+}
+
+/* Animations */
+@keyframes floatY {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
+}
+
+.float-slow {
+  animation: floatY 6s ease-in-out infinite;
+}
+
+.fade-up {
+  transform: translateY(12px);
+  opacity: 0;
+  animation: fadeUp 0.9s ease forwards;
+}
+
+@keyframes fadeUp {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slideDown {
+  animation: slideDown 0.3s ease forwards;
+}
+
+/* Custom transitions */
+.transform {
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.transition {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.hover\:scale-105:hover {
+  transform: scale(1.05);
+}
+
+.hover\:scale-\[1\.02\]:hover {
+  transform: scale(1.02);
+}
+
+/* Additional utility classes */
+.antialiased {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.shadow-md {
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.shadow-lg {
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+.shadow-xl {
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+}
+
+.shadow-sm {
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+}
+
+.rounded-2xl {
+  border-radius: 1rem;
+}
+
+.rounded-lg {
+  border-radius: 0.5rem;
+}
+
+.rounded-full {
+  border-radius: 9999px;
+}
+
+.backdrop-blur-md {
+  backdrop-filter: blur(12px);
+}
+
+/* Responsive grid utilities */
+.grid {
+  display: grid;
+}
+
+.grid-cols-1 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+@media (min-width: 640px) {
+  .sm\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 768px) {
+  .md\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  
+  .md\:ml-auto {
+    margin-left: auto;
+  }
+}
+
+@media (min-width: 1024px) {
+  .lg\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* Gap utilities */
+.gap-3 { gap: 0.75rem; }
+.gap-4 { gap: 1rem; }
+.gap-6 { gap: 1.5rem; }
+.gap-8 { gap: 2rem; }
+
+.space-y-4 > * + * { margin-top: 1rem; }
+.space-y-6 > * + * { margin-top: 1.5rem; }
+.space-x-4 > * + * { margin-left: 1rem; }
+
+/* Flex utilities */
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.items-center { align-items: center; }
+.justify-between { justify-content: space-between; }
+.justify-center { justify-content: center; }
+
+/* Typography */
+.font-serif {
+  font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+.font-medium {
+  font-weight: 500;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.text-xs {
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+.leading-tight {
+  line-height: 1.25;
+}
+
+.tracking-tight {
+  letter-spacing: -0.025em;
+}
+
+/* Padding and margin */
+.p-2 { padding: 0.5rem; }
+.p-5 { padding: 1.25rem; }
+.p-8 { padding: 2rem; }
+.py-4 { padding-top: 1rem; padding-bottom: 1rem; }
+.py-8 { padding-top: 2rem; padding-bottom: 2rem; }
+.py-12 { padding-top: 3rem; padding-bottom: 3rem; }
+.px-6 { padding-left: 1.5rem; padding-right: 1.5rem; }
+.px-4 { padding-left: 1rem; padding-right: 1rem; }
+.pt-20 { padding-top: 5rem; }
+
+.mb-4 { margin-bottom: 1rem; }
+.mb-3 { margin-bottom: 0.75rem; }
+.mt-1 { margin-top: 0.25rem; }
+.mt-4 { margin-top: 1rem; }
+.mt-6 { margin-top: 1.5rem; }
+.ml-2 { margin-left: 0.5rem; }
+
+/* Max-width utilities */
+.max-w-7xl {
+  max-width: 80rem;
+}
+
+.max-w-3xl {
+  max-width: 48rem;
+}
+
+.max-w-xl {
+  max-width: 36rem;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Width and height */
+.w-full { width: 100%; }
+.w-11 { width: 2.75rem; }
+.w-40 { width: 10rem; }
+.w-6 { width: 1.5rem; }
+.w-10 { width: 2.5rem; }
+.h-11 { height: 2.75rem; }
+.h-48 { height: 12rem; }
+.h-6 { height: 1.5rem; }
+.h-10 { height: 2.5rem; }
+
+/* Position */
+.fixed { position: fixed; }
+.relative { position: relative; }
+.absolute { position: absolute; }
+.top-0 { top: 0; }
+.left-0 { left: 0; }
+.bottom-4 { bottom: 1rem; }
+.right-6 { right: 1.5rem; }
+.z-50 { z-index: 50; }
+
+/* Border */
+.border { border-width: 1px; }
+.border-t { border-top-width: 1px; }
+.border-green-700\/30 { border-color: rgba(4, 120, 87, 0.3); }
+.border-white\/10 { border-color: rgba(255, 255, 255, 0.1); }
+.border-white\/6 { border-color: rgba(255, 255, 255, 0.06); }
+
+/* Object fit */
+.object-cover {
+  object-fit: cover;
+}
+
+/* Text colors */
+.text-gray-100 {
+  color: rgb(243 244 246);
+}
+
+.text-green-50 {
+  color: rgb(240 253 250);
+}
+
+.text-green-100\/80 {
+  color: rgba(220 252 231, 0.8);
+}
+
+.text-green-100\/90 {
+  color: rgba(220 252 231, 0.9);
+}
+
+.text-green-100\/70 {
+  color: rgba(220 252 231, 0.7);
+}
+
+.text-green-50\/90 {
+  color: rgba(240 253 250, 0.9);
+}
+
+.text-green-900 {
+  color: rgb(20 83 45);
+}
+
+/* Background colors */
+.bg-white\/3 {
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+.bg-white\/4 {
+  background-color: rgba(255, 255, 255, 0.04);
+}
+
+.bg-white\/10 {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.bg-green-200 {
+  background-color: rgb(187 247 208);
+}
+
+.bg-forest\/95 {
+  background: linear-gradient(180deg, rgba(11, 59, 35, 0.95) 0%, rgba(14, 63, 40, 0.95) 50%, rgba(22, 96, 58, 0.95) 100%);
+}
+
+/* Opacity */
+.opacity-40 {
+  opacity: 0.4;
+}
+
+/* Rotate */
+.rotate-6 {
+  transform: rotate(6deg);
+}
+
+/* Hidden / display */
+.hidden {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .md\:hidden {
+    display: none;
+  }
+  
+  .md\:flex {
+    display: flex;
+  }
+  
+  .md\:block {
+    display: block;
+  }
+}
+
+/* Hover effects */
+.hover\:underline:hover {
+  text-decoration: underline;
+}
+
+/* Text center */
+.text-center {
+  text-align: center;
+}
+
+/* Inline block */
+.inline-block {
+  display: inline-block;
+}
