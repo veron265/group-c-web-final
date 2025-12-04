@@ -1,0 +1,162 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #0c3d27;
+}
+
+.navbar {
+    width: 100%;
+    background-color:#0c3d27 ;
+    color:  #e0f2e9;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+}
+
+.logo-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.logo-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.desktop-menu {
+    display: flex;
+    gap: 20px;
+}
+
+.desktop-menu a {
+    color:  #e0f2e9;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.desktop-menu a:hover {
+    text-decoration: underline;
+}
+
+.shop-btn {
+    background-color: #a7f3d0;
+    color: #065f46;
+    padding: 5px 12px;
+    border-radius: 9999px;
+    font-weight: bold;
+}
+
+
+.mobile-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+
+.mobile-menu {
+    display: none;
+    flex-direction: column;
+    background-color: #064e3b;
+    text-align: center;
+    padding: 12px 0;
+    color:  #e0f2e9;
+}
+
+.mobile-menu a {
+    color: #e0f2e9;
+    text-decoration: none;
+    margin: 8px 0;
+}
+.main-content {
+    max-width: 1200px;
+    margin: 120px auto 40px; 
+    display: flex;
+    gap: 40px;
+    padding: 0 20px;
+}
+
+.story-section {
+    flex: 2;
+    color:  #e0f2e9;
+}
+
+.image-section {
+    flex: 1;
+}
+
+.story-img {
+    width: 100%;
+    border-radius: 12px;
+}
+
+
+.founders-grid {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 20px 0;
+}
+
+.founder-card {
+    flex: 1;
+    min-width: 200px;
+    background-color: #e0f2e9;
+    padding: 12px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.founder-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 8px;
+}
+
+
+.footer {
+    background-color: #0c3d27;
+    color: #e0f2e9;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+
+@media (max-width: 768px) {
+    .desktop-menu {
+        display: none;
+    }
+    .mobile-toggle {
+        display: block;
+    }
+    .main-content {
+        flex-direction: column;
+    }
+    .founders-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+}
